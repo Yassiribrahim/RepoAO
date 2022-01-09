@@ -14,7 +14,7 @@ import Ads from '../components/Ads';
 
 const posts = [{title:'Yassir Title1 ', excerpt:'Yassir  Excerpt1'},{title:' Yassir Title 2 ',excerpt:' YassirExcerpt2'},];
 
-export default function Home({posts}) {
+export default function Home({latestnews}) {
       return (
 <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -26,7 +26,7 @@ export default function Home({posts}) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-sky-900 ">
         
               <div className="col-span-1 lg:col-span-8 p-9">
-                    {posts.map((post) =>  <CardNews post={post} key={post.node.aoTitle} /> )}                   
+                    {latestnews.map((latestnew) =>  <CardNews latestnew={latestnew} key={latestnew.node.aoTitle} /> )}                   
               </div>
               
             <div className="col-span-1 lg:col-span-4">
@@ -47,9 +47,9 @@ export default function Home({posts}) {
 
 // Fetch data at build time
 export async function getStaticProps() {
-  const posts = (await getPosts()) || [];
+  const latestnews = (await getPosts()) || [];
   return {
-    props: { posts },
+    props: { latestnews },
   };
 }
 
