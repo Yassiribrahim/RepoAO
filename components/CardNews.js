@@ -18,7 +18,7 @@ const CardNews = ({latestnew}) => {
         
         
          
-         <div className="transition duration-700 text-green-600 text-center mb-4 cursor-pointer">
+         <div className="transition duration-700 text-green-600 text-center mb-4 cursor-pointer hover:text-yellow-400">
              <Link href={`/news/${latestnew.node.aoslug}`}>
              { latestnew.node.aoTitle } 
             </Link>
@@ -35,7 +35,7 @@ const CardNews = ({latestnew}) => {
          <div className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20">
              <div className="text-center">
              <Link href={`/news/${latestnew.node.aoslug}`} passHref>
-             <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-green-500 font-small rounded-full text-white mt-8 px-4 py-1 cursor-pointer">قراءة المزيد</span>
+             <span className="transition duration-500 ease transform hover:-translate-y-1 hover:text-yellow-700 inline-block bg-green-500 font-small rounded-full text-white mt-8 px-4 py-1 cursor-pointer">قراءة المزيد</span>
             </Link>
             </div>
             
