@@ -2,13 +2,13 @@ import React from 'react'
 import Link from 'next/link'
 import moment from 'moment';
 import Image from 'next/image'
-const CardNews = ({latestnew}) => {
-    
-    return (
+const CardNews = ({ allnew }) => {
+   
+     return (
         <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
            <div className="relative overflow-hidden shadow-md pb-20 mb-2">
            <Image
-            src={latestnew.node.aoImage.url}
+            src={allnew.node.aoImage.url}
                 alt="News Pic"
                 width={600}
                 height={400}
@@ -18,34 +18,35 @@ const CardNews = ({latestnew}) => {
         
         
          
-         <div className="transition duration-700 text-green-600 text-center mb-4 cursor-pointer hover:text-yellow-400">
-             <Link href={`/news/${latestnew.node.aoslug}`}>
-             { latestnew.node.aoTitle } 
-            </Link>
+         <h1 className="transition duration-700 text-green-600 text-center mb-4 cursor-pointer hover:text-yellow-400">
+             <Link href={`/news/${allnew.node.aoSlug}`}>
+                 { allnew.node.aoTitle } 
+             </Link>
             
-         </div>
+         </h1>
          <div className="text-center mb-2  ">
-          {moment(latestnew.node.aoCreatedDate).format("MMM DD, YYYY")}
+          {moment(allnew.node.aoCreatedDate).format("MMM DD, YYYY")}
          </div>
          
          <div className="text-center ">
-         { latestnew.node.aoText } 
+         { allnew.node.aoText } 
 
          </div>
          <div className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20">
              <div className="text-center">
-             <Link href={`/news/${latestnew.node.aoslug}`} passHref>
-             <span className="transition duration-500 ease transform hover:-translate-y-1 hover:text-yellow-700 inline-block bg-green-500 font-small rounded-full text-white mt-8 px-4 py-1 cursor-pointer">قراءة المزيد</span>
-            </Link>
-            </div>
+                    <Link href={`/news/${allnew.node.aoSlug}`}>
+                    <span className="transition duration-500 ease transform hover:-translate-y-1 hover:text-yellow-700 inline-block bg-green-500 font-small rounded-full text-white mt-8 px-4 py-1 cursor-pointer">قراءة المزيد</span>
+                    </Link>
+             </div>
             
          </div>
          
        
-         </div>
+        </div>
 
          
     )
+   
 }
 
 export default CardNews
