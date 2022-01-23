@@ -1,0 +1,11 @@
+{
+    "name": "Name of your Project",
+    "schemaPath": "./schema.json",
+    "extensions": {
+      "endpoints": {
+        "Default GraphQL Endpoint": {
+          "url": "https://api-eu-west-2.graphcms.com/v2/ckxfxhhpl0mbk01zdhwt320rb/master",
+        }
+      }
+    }
+  }

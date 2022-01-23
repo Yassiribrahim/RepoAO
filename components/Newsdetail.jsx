@@ -1,7 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
+import moment from 'moment'
 
-const Newsdetail = (newsbyslug) => {
+const Newsdetail = ({ newsbyslug }) => {
+  //console.log(item0[0].object.aotitle)
+  // console.log(newsbyslug.aoTitle)
+ 
+  // console.log(newsbyslug[0].aoTitle)
+  
+  
+
     const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -34,30 +42,38 @@ const Newsdetail = (newsbyslug) => {
         return modifiedText;
     }
   };
+  
     return (
+    
         <>
+        
         <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
           <div className="relative overflow-hidden shadow-md mb-6">
-            <imageg src={newsbyslug.node.aoImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
+           
+          <Image src = { newsbyslug[0].aoImage.url } alt="" 
+              width={800}
+              height={600}
+          className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
+          
           </div>
+          
+         
+           
           <div className="px-4 lg:px-0">
             <div className="flex items-center mb-8 w-full">
-              <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-                <image
-                                  
-                  src={newsbyslug.node.aoImage.url}
-                />
-                <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{allnew.node.aoText}</p>
+              <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 ">
+               
+                <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{newsbyslug[0].aoText}</p>
               </div>
               <div className="font-medium text-gray-700">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span className="align-middle">{moment(newsbyslug.node.aoCreatedDate).format('MMM DD, YYYY')}</span>
+                <span className="align-middle">{moment(newsbyslug[0].aoCreatedDate).format('MMM DD, YYYY')}</span>
               </div>
             </div>
-            <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-            {post.content.raw.children.map((typeObj, index) => {
+            <h1 className="mb-8 text-3xl font-semibold">{newsbyslug[0].aoTitle}</h1>
+            {newsbyslug[0].content.raw.children.map((typeObj, index) => {
               const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
   
               return getContentFragment(index, children, typeObj, typeObj.type);
