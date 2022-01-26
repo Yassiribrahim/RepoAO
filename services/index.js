@@ -5,7 +5,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getallnews= async () => {
     const query = gql`
     query MyQuery {
-        aosNewsConnection {
+        aosNewsConnection (orderBy: aoCreatedDate_DESC) {
           edges {
             node {
               aoTitle
