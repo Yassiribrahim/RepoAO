@@ -2,7 +2,7 @@ import React from 'react'
 import { getallnews , getnewsbyslug } from '../../services'
 import { useRouter } from 'next/router';
 import Loader from '../../components/Loader';
-import Newsdetail from '../../components/newsdetail';
+import Newsdetail from '../../components/Newsdetail';
 
 const NewsDetails = ({newsbyslug}) => {
   
